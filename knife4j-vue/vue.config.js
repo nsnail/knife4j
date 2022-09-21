@@ -5,10 +5,10 @@ const productionGzipExtensions = ["js", "css"];
 module.exports = {
   publicPath: ".",
   assetsDir: "webjars",
-  outputDir: "dist",
+  outputDir: "../../../src/AuthCenter.Core.ApiUI/dist",
   lintOnSave: false,
   productionSourceMap: false,
-  indexPath: "doc.html",
+  indexPath: "index.html",
   css: {
     loaderOptions: {
       less: {

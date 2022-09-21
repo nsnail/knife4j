@@ -440,6 +440,7 @@ const langOptions = {
     globalsettings: 'GlobalParams',
     officeline: 'OfflineDocument',
     selfSettings: 'Settings',
+    genApi: 'Generate Api',
     other:'Others',
     menuItemList:[
       { key: '1', icon: 'caret-left', text: 'Close Left' },

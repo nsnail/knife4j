@@ -430,6 +430,7 @@ const langOptions = {
     globalsettings: '全局参数设置',
     officeline: '离线文档',
     selfSettings: '个性化设置',
+    genApi: '前端Api生成',
     other:'其他文档',
     menuItemList:[
       { key: '1', icon: 'caret-left', text: '关闭左侧' },

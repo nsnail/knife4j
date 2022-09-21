@@ -347,8 +347,17 @@ export default {
      * @param parent ''
      */
     filterChildrens(keys = [], childrens = [], parent) {
-      if (keys.length === 0) return childrens;
       const that = this;
+      childrens.map(child => {
+        if(child.schema){
+          var paramSchema = that.swaggerInstance.swaggerData.components.schemas[child.schemaValue]
+          if(paramSchema && paramSchema.extensions && paramSchema.extensions.description){
+            child.description = child.description + paramSchema.extensions.description
+          }
+        }
+      })
+      if (keys.length === 0) return childrens;
+      
       const arrs = parent
         ? childrens.filter(child => !keys.includes(`${parent}.${child.name}`))
         : childrens.filter(child => !keys.includes(child.name));
@@ -501,6 +510,13 @@ export default {
                             currentIgnores,
                             childrens
                           );
+                        }
+                        //处理枚举描述
+                        if(newObj.schema){
+                          var paramSchema = that.swaggerInstance.swaggerData.components.schemas[newObj.schemaValue]
+                          if(paramSchema && paramSchema.extensions && paramSchema.extensions.description){
+                            newObj.description = newObj.description + paramSchema.extensions.description
+                          }
                         }
                         return newObj;
                       });
